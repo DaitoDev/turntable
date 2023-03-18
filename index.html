@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- gooogle fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
+    <!-- fontawesome  -->
+    <script src="https://kit.fontawesome.com/aea30758ce.js" crossorigin="anonymous"></script>
+    <!-- stylesheet  -->
+    <link rel="stylesheet" href="sass/main.css">
+    <title>Turntable</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- contains display flex. has 2 children -->
+        <div class="table">
+
+            <!-- left side, contains the vinyl player  -->
+            <div class="turntable">
+                <div class="vinyl">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/LP_Vinyl_Symbol_Icon.png"
+                        class='albumArt' alt="">
+                    <div class="pin"></div>
+                </div>
+            </div>
+
+            <!-- Right side, contains the lights, texts, controls  -->
+            <div class="controls">
+
+                <!-- Decoration light elements  NOTE: nonfunctional-->
+                <div class="buttons">
+                    <div class="btns btn-big"></div>
+                    <div class="btns blinker"></div>
+                    <div class="btns"></div>
+                    <div class="btns"></div>
+                </div>
+
+                <!-- Contains song name and artist  -->
+                <div class="name">
+                    <h3 class="artistName"></h3>
+                    <p class="songName"></p>
+                </div>
+
+                <!-- duration, track seeking and volume controls  -->
+                <div class="sliders">
+
+                    <!-- duration, track seeking controls  -->
+                    <div class="seek">
+                        <div class="elapsed">00:00</div>
+                        <input type="range" class="track-seek" min="1" max="100" value="1">
+                        <div class="duration">00:00</div>
+                        <audio src="#" class="audio"></audio>
+                    </div>
+
+                    <!-- Volume control  -->
+                    <div class="volume">
+                        <i class="fa fa-volume-down"></i>
+                        <input type="range" class="volume-slider" min="1" max="99" value="99">
+                        <i class="fa fa-volume-up"></i>
+                    </div>
+                </div>
+
+                <!-- Play, Next, Previous btns. Note: Pause btn Icon will be toggled by JS  -->
+                <div class="control-btns">
+                    <div class="icons">
+                        <div class="prevBtn">
+                            <i class=" fa fa-step-backward 2x"></i>
+                        </div>
+                        <div class="playBtn">
+                            <i class="playPause fa fa-play-circle 5x"></i>
+                        </div>
+                        <div class="nextBtn">
+                            <i class=" fa fa-step-forward 2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- script files  -->
+    <script src="app.js"></script>
+</body>
+
+</html>

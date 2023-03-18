@@ -1,0 +1,203 @@
+@import './config';
+@import './variables';
+@import './mixins';
+@import './animation';
+
+
+.container{
+    min-height: 100vh;
+    @include flex();
+    margin: 1rem
+}
+
+// Content container styling 
+.table{
+    @include flex();
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: $br-md;
+    background-image: (linear-gradient(to right, $clr-table-1, $clr-table-2));
+}
+
+
+// Left flexbox container styling 
+.turntable{
+    position: relative;
+    height: 500px;
+    width: 500px;
+    background-color: $clr-primary;
+    border-radius: $br-md;
+    padding: $p1;
+    box-shadow: $bs-decks;
+
+    // The image container 
+    .vinyl{
+        height: 100%;
+        width: 100%;
+        border-radius: $br-round;
+        box-shadow: $bs-decks-v;
+        overflow: hidden;
+        
+        // basic image styling
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    
+        // Pin in the middle of the vinyl 
+        .pin{
+            position: absolute;
+            top: 50.4%;
+            left: 50.4%;
+            height: 15px;
+            width: 15px;
+            transform: translateX(-10px) translateY(-10px);
+            background-color: $clr-btns;
+            border: 1px dashed $clr-primary-light;
+            border-radius: $br-round;
+            box-shadow: $bs-btns;
+        }
+    }
+}
+
+// right flexbox container styling 
+.controls{
+    @include flex(space-evenly, center, column);
+    height: 500px;
+    width: 350px;
+    background-color: $clr-primary;
+    padding: $p1;
+    border-radius: $br-md;
+    box-shadow: $bs-decks;
+}
+
+// These are decorative buttons at the top, not functional.
+// Should just be called lights
+.buttons {
+    @include flex($j: space-evenly);
+    width: 90%;
+
+    .btns{
+        height: 15px;
+        width: 15px;
+        border-radius: $br-round;
+        background-image: radial-gradient(rgb(252, 191, 191), red);
+        box-shadow: 1px 1px 9px 2px rgba(241, 7, 7, 0.69);
+    }
+    .btns:last-of-type{
+        height: 15px;
+        width: 15px;
+        border-radius: $br-round;
+        background-image: radial-gradient(rgb(196, 252, 191), rgb(9, 255, 0));
+        box-shadow: 1px 1px 9px 2px rgba(66, 250, 42, 0.69);
+    }
+
+    .btn-big{
+        height: 65px;
+        width: 65px;
+        background-color:$clr-btns;
+        background-image: none;
+        box-shadow: $bs-btns;
+        border: 1px solid $clr-primary-light;
+        border-style: dashed solid;
+    }
+}
+
+
+// box in the middle with track and artist name 
+.name{
+    @include flex($d:column);
+    width: 80%;
+    height: 100px;
+    background-color: $clr-primary-dark;
+    border-radius: $br-md;
+    box-shadow: inset 0px 2px 4px 1px rgba(0, 0, 0, 0.555);
+}
+
+// * Styles the seek and volume section, align using flexbox */
+.sliders {
+
+    .elapsed,
+    .duration {
+        color: $clr-primary-dark;
+        font-weight: 400;
+    }
+
+    .seek, .volume {
+        @include flex($j:space-evenly);
+        gap: 0.7rem;
+        }
+
+    .track-seek, .volume-slider{
+        appearance: none;
+        background-color:$clr-primary-dark;
+        height: 5px;
+        opacity: 0.7;
+        transition: all 200ms;
+
+        &:hover{
+            opacity: 1;
+        }
+
+        &::-webkit-slider-thumb{
+            cursor: pointer;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: $clr-table-2;
+        }
+    }
+
+    .track-seek{
+        min-width: 150px;
+    }
+
+    .elapsed,
+    .duration {
+        min-width: 40px;
+    }
+
+}
+
+// These are the actual FUNCTIONAL control buttons for Play, Pause, Next, Prev 
+.control-btns{
+
+    // sets a display flex and align everything center 
+    .icons{
+        @include flex();
+        gap: 2rem;
+        font-size: 3rem;
+
+        // sets the btn color 
+        div{
+        color: $clr-primary-light;
+        }
+
+        .prevBtn:hover,
+        .playBtn:hover,
+        .nextBtn:hover{
+            cursor: pointer;
+            color: $clr-primary-dark;
+        }
+    }
+}
+
+@media screen and (max-width: 915px){
+    .table{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 560px){
+    .table{
+        flex-direction: column;
+
+        // Makes the turntable smaller to match the controls panel 
+        .turntable{
+            height: 350px;
+            width: 350px;
+        }
+    }
+}
