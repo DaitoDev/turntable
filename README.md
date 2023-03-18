@@ -1,8 +1,8 @@
 # Media player that looks like a turntable
-Doesnt scratch unfortunately, wicka wicka wickidy wack!
+Doesn't scratch unfortunately, wicka wicka wickidy wack!
 
 
-Desltop
+Desktop
 ![turntable-desktop](https://user-images.githubusercontent.com/82598098/226074249-25f0ffe0-6bc4-4157-b359-3bf95955e64b.jpg)
 
 
